@@ -38,7 +38,7 @@ You can skip this step if you plan to wire your Raspberry Pi to your router by e
 Create a plain text file called wpa_supplicant.conf in the root directory of the SD card.
 
 Insert the below text into the file:
-```
+```vim
 {
 country=gb
 update_config=1
@@ -75,7 +75,7 @@ Open Terminal on your mac (or if you're using Windows then download and use Putt
 
 Enter the following command:
 
-```
+```bash
 ssh pi@raspberrypi.local
 ```
 Accept any security warnings you get. You will be prompted for the password for the default pi user which is ```raspberry```
@@ -91,21 +91,21 @@ You are now connected to your Pi via the command line, which is great but you ma
 
 First of all check your Pi software is up to date by entering the following two commands (each followed by enter) into the command line:
 
-```
+```bash
 sudo apt update
 sudo apt upgrade
 sudo apt install realvnc-vnc-server realvnc-vnc-viewer
 ```
 Next, open up the Raspberry Pi settings menu by entering:
 
-```
+```bash
 sudo raspi-config
 ```
 Navigate to Interfacing Options > VNC > Yes.
 
 Exit the config application by pressing the escape key and reboot the Pi from the command line by typing:
 
-```
+```bash
 sudo reboot
 ```
 ### Step 9: Connect to and Setup Your Raspberry Pi GUI (optional)
@@ -113,7 +113,7 @@ sudo reboot
 Download and open VNC Viewer.
 
 Type in the IP address for your Raspberry Pi and press connect. It will prompt you for username and password which are:
-```
+```vim
 Username = pi
 Password = raspberry
 ```
@@ -130,3 +130,5 @@ It will then check for, download and install updates (might take a while).
 Once you are through the setup wizard I would recommend changing the screen resolution as the default is pretty small. You can do this by clicking the Raspberry at the top left > Preferences > Raspberry Pi Configuration > Display > Set Resolution
 
 You will need to reboot the Pi yet again to get this to take effect.
+
+[Reference](https://www.hackster.io/mark-hank/super-simple-headless-raspberry-pi-setup-5382d6)
