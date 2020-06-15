@@ -29,9 +29,8 @@ You now need to find the IP address of the Raspberry Pi so you can connect to it
 ## Optional
 
 ### Step 7 Raspberry Pi Headless Setup via Network-Manager
-```
 [WiFi Configuration via Network manager on RPi](https://github.com/sraodev/Raspberry-Pi-Headless-Setup-via-Network-Manager)
-```
+
 ### Step 8: Set Up the Raspberry Pi OS GUI (optional)
 
 ### Step 9: Connect to and Setup Your Raspberry Pi GUI (optional)
