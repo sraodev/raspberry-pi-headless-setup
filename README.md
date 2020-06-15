@@ -8,13 +8,13 @@ How to set up a Raspberry Pi with literally every single step explained. Assumes
 ## Super simple step-by-step, no prior knowledge assumed.
 
 ### Step 1: Download the Raspberry Pi OS to an SD Card
-On your PC or Mac, download and run the Raspberry PI imager application.
+> On your PC or Mac, download and run the [Raspberry PI imager application](https://www.raspberrypi.org/downloads/).
 
 Insert the SD card you want to install the Raspberry Pi operating system on.
 
-Click on CHOOSE OS and select the default Rasbian.
+Click on `CHOOSE OS` and select the default Rasbian.
 
-Click on CHOOSE SD CARD and select the SD card you have plugged in.
+Click on `CHOOSE SD CARD` and select the SD card you have plugged in.
 
 Click on WRITE. This may take a while.
 
@@ -27,9 +27,9 @@ Once the OS has been written to the SD card, there are a few additional tasks yo
 We want to access the Raspberry Pi without plugging in a keyboard or monitor (aka "headless"), which we can do over our local network using our PC or Mac over a protocol called SSH. However, for security reasons SSH is disabled by default. We need to enable it.
 
 We can do this by creating an empty file called:
-
+```
 ssh
-
+```
 in the SD card we just created. It's important that this doesn't have any sort of extension (eg.txt). The file itself doesn't need to contain any content - just its existence will enable SSH when the Pi boots up.
 
 ### Step 3: Set Up Wifi on Your Raspberry Pi
@@ -77,10 +77,10 @@ Open Terminal on your mac (or if you're using Windows then download and use Putt
 
 Enter the following command:
 
-ssh pi@[your Pi's IP address]
+```ssh pi@raspberrypi.local```
 Accept any security warnings you get. You will be prompted for the password for the default pi user which is
 
-raspberry
+```raspberry```
 
 
 ## Optional
@@ -93,12 +93,16 @@ You are now connected to your Pi via the command line, which is great but you ma
 
 First of all check your Pi software is up to date by entering the following two commands (each followed by enter) into the command line:
 
+```
 sudo apt update
 sudo apt upgrade
 sudo apt install realvnc-vnc-server realvnc-vnc-viewer
+```
 Next, open up the Raspberry Pi settings menu by entering:
 
+```
 sudo raspi-config
+```
 Navigate to Interfacing Options > VNC > Yes.
 
 Exit the config application by pressing the escape key and reboot the Pi from the command line by typing:
