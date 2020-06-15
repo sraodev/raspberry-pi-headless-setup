@@ -1,4 +1,8 @@
-# Super-Raspberry-Pi-Headless-Setup
+<p align="center">
+  <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/272_Raspberry_Pi-512.png" width="150" title="hover text"> 
+</p>
+
+#  Super-Raspberry-Pi-Headless-Setup 
 How to set up a Raspberry Pi with literally every single step explained. Assumes you want to run "headless" (without a monitor and keyboard)
 
 ## Super simple step-by-step, no prior knowledge assumed.
