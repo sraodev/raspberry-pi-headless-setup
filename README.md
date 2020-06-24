@@ -1,5 +1,6 @@
 <p align="center">
   <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/272_Raspberry_Pi-512.png" width="150" title="hover text"> 
+  <img align="right" src="https://github.com/sraodev/super/blob/master/assets/icons-super-48.png" width="48" title="hover text"> 
 </p>
 
 #  Super-Raspberry-Pi-Headless-Setup 
