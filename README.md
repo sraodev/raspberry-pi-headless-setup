@@ -81,6 +81,10 @@ ssh pi@raspberrypi.local
 ```
 Accept any security warnings you get. You will be prompted for the password for the default pi user which is ```raspberry```
 
+Start wpa_supplicant manually to make the wireless interface work again.
+```bash
+wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+```
 
 ## Optional
 
