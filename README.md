@@ -3,10 +3,10 @@
   <img align="right" src="https://github.com/sraodev/super/blob/master/assets/icons-super-48.png" width="48" title="hover text"> 
 </p>
 
-#  Super-Raspberry-Pi-Headless-Setup 
+#Raspberry-Pi-Headless-Setup 
 How to set up a Raspberry Pi with literally every single step explained. Assumes you want to run "headless" (without a monitor and keyboard)
 
-## Super simple step-by-step, no prior knowledge assumed.
+## Simple step-by-step, no prior knowledge assumed.
 
 ### Step 1: Download the Raspberry Pi OS to an SD Card
 > On your PC or Mac, download and run the [Raspberry PI imager application](https://www.raspberrypi.org/downloads/).
