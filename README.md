@@ -3,7 +3,7 @@
   <img align="right" src="https://github.com/sraodev/super/blob/master/assets/icons-super-48.png" width="48" title="hover text"> 
 </p>
 
-#Raspberry-Pi-Headless-Setup 
+# Raspberry-Pi-Headless-Setup 
 How to set up a Raspberry Pi with literally every single step explained. Assumes you want to run "headless" (without a monitor and keyboard)
 
 ## Simple step-by-step, no prior knowledge assumed.
