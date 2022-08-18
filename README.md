@@ -40,7 +40,6 @@ Create a plain text file called wpa_supplicant.conf in the root directory of the
 
 Insert the below text into the file:
 ```vim
-{
 country=gb
 update_config=1
 ctrl_interface=/var/run/wpa_supplicant
