@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/272_Raspberry_Pi-512.png" width="150" title="Raspberry Pi">
-  <img align="right" src="https://github.com/sraodev/super/blob/master/assets/icons-super-48.png" width="48" title="Super">
+<p align="right">
+  <img src="assets/super.png" width="48" alt="Super">
 </p>
 
 # Raspberry-Pi-Headless-Setup
@@ -8,6 +7,22 @@
 How to set up a Raspberry Pi with every step explained. Assumes you want to run "headless" (without a monitor and keyboard).
 
 > **Heads up:** Since Raspberry Pi OS Bookworm (Dec 2023) the legacy `ssh` / `wpa_supplicant.conf` boot-partition trick has been deprecated, and there is no longer a default `pi` / `raspberry` user. The recommended path below uses the official Raspberry Pi Imager to pre-configure SSH, Wi-Fi, username/password, and locale before first boot.
+
+## Contents
+
+- [Prerequisites](#prerequisites)
+- [Step-by-step](#step-by-step)
+  - [Step 1: Install the Raspberry Pi Imager](#step-1-install-the-raspberry-pi-imager)
+  - [Step 2: Choose the OS and pre-configure the image](#step-2-choose-the-os-and-pre-configure-the-image)
+  - [Step 3 (fallback): Manual configuration for older OS releases](#step-3-fallback-manual-configuration-for-older-os-releases)
+  - [Step 4: Power up your Raspberry Pi](#step-4-power-up-your-raspberry-pi)
+  - [Step 5: Find the Pi on your network](#step-5-find-the-pi-on-your-network)
+  - [Step 6: SSH into the Pi](#step-6-ssh-into-the-pi)
+- [Optional](#optional)
+  - [Step 7: Wi-Fi via NetworkManager](#step-7-wi-fi-via-networkmanager)
+  - [Step 8: Set up the Raspberry Pi OS GUI via VNC](#step-8-set-up-the-raspberry-pi-os-gui-via-vnc)
+  - [Step 9: Connect to the Pi GUI](#step-9-connect-to-the-pi-gui)
+- [Troubleshooting](#troubleshooting)
 
 ## Prerequisites
 
@@ -135,6 +150,34 @@ On first GUI login you may be prompted to:
 - install pending updates.
 
 After setup, adjust the screen resolution via **Raspberry menu > Preferences > Raspberry Pi Configuration > Display > Set Resolution**, then reboot for the change to take effect.
+
+## Troubleshooting
+
+**`raspberrypi.local` does not resolve.**
+mDNS isn't always available — notably on older Windows hosts without Bonjour. Install [Bonjour Print Services](https://support.apple.com/kb/dl999) on Windows, or skip the hostname and use the Pi's IP directly. Find it via your router's DHCP client list, `nmap -sn 192.168.1.0/24`, or the **Fing** mobile app. If you set a custom hostname in the Imager, substitute it for `raspberrypi`.
+
+**Pi never joins Wi-Fi.**
+Most often caused by a missing or wrong country code, an SSID typo, or 5 GHz-only Wi-Fi on a Pi model that's 2.4 GHz-only (Pi Zero W, Pi 3A+ in 5 GHz dead zones). Re-image with the Imager and double-check the country (uppercase ISO 3166-1, e.g. `GB`, `US`, `DE`). For the manual fallback, confirm `wpa_supplicant.conf` lives on the **boot** partition (FAT) and not the Linux rootfs.
+
+**SSH refuses to connect / "Connection refused".**
+The Pi may not have finished booting — wait 60–90 seconds after power-up. If using the manual fallback, verify the empty `ssh` file is on the boot partition with no extension (Windows often hides `.txt`).
+
+**SSH host-key warning after re-imaging.**
+Re-flashing the SD card regenerates the Pi's host key, so your client refuses the new fingerprint. Remove the stale entry:
+
+```bash
+ssh-keygen -R raspberrypi.local
+ssh-keygen -R <pi-ip-address>
+```
+
+**"Permission denied (publickey,password)".**
+The username does not exist (you're probably trying the legacy `pi` user on a Bookworm-or-newer image). Use the username you set in Step 2.
+
+**`apt` fails with hash-sum mismatch or 404.**
+Usually transient mirror issues. Retry, or run `sudo apt clean && sudo apt update`.
+
+**VNC Viewer shows "cannot currently show the desktop".**
+Enable a virtual framebuffer in `sudo raspi-config` → **Display Options > VNC Resolution**, set a resolution (e.g. 1280×720), then reboot.
 
 ---
 
