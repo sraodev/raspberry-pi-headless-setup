@@ -114,7 +114,7 @@ Use the username and password you set in Step 2. Accept the host-key prompt on f
 
 ### Step 7: Wi-Fi via NetworkManager
 
-Bookworm switched to NetworkManager by default. See [WiFi Configuration via NetworkManager on RPi](https://github.com/sraodev/Raspberry-Pi-Headless-Setup-via-Network-Manager) for CLI (`nmcli`) examples.
+Bookworm switched to NetworkManager by default. See [Raspberry Pi Headless Wi-Fi with NetworkManager](https://github.com/sraodev/raspberry-pi-headless-wifi) for CLI (`nmcli`) examples.
 
 ### Step 8: Set up the Raspberry Pi OS GUI via VNC
 
